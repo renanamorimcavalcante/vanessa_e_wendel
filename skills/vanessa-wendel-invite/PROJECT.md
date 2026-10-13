@@ -74,7 +74,7 @@ nem as fotos deles. Para religar: `dressCode: true` / `gifts: true`.
 no servidor, apagar `status.php` do servidor, pastas vazias de fotos por filho em src/assets/img/.
 
 ## 2026-10-12 — Data oficial + API publicada
-- Casamento: **sexta-feira, 20/11/2026, 16h30** (Igreja). Prazo RSVP provisório: 10/11/2026.
+- Casamento: **sexta-feira, 20/11/2026, 15h30** (Igreja). Prazo RSVP provisório: 10/11/2026.
 - API publicada na HostGator em `renancavalcante.dev.br/wendelevanessa/` (banco e usuário no cPanel → Bancos de dados MySQL). `status.php` confirmou conexão + tabela.
 - `_bootstrap.php` aceita `'pass'` ou `'password'` no config (padrão do Decola Tech).
 
