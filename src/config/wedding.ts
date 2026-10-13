@@ -26,7 +26,9 @@ import foto7 from "@/assets/img/familia/7.jpeg";
 import foto8 from "@/assets/img/familia/8.jpeg";
 import foto9 from "@/assets/img/familia/9.jpeg";
 import foto10 from "@/assets/img/familia/10.jpeg";
+import foto10b from "@/assets/img/familia/10-2.jpeg";
 import foto10c from "@/assets/img/familia/10-3.jpeg";
+import fotoVicente from "@/assets/img/familia/vicent.jpeg";
 
 // ── Seções visíveis ────────────────────────────────────────────────
 /**
@@ -148,6 +150,9 @@ export interface StoryCard {
   speed: number;
 }
 
+/** Nomes dos filhos — aparecem em negrito e azul nos textos e legendas da história. */
+export const CHILDREN = ["Wendel Miguel", "Maria Cecília", "Vicente", "Maria Celina"];
+
 /** Abertura da seção "Nossa história" */
 export const STORY_INTRO = {
   title: "Nossa história",
@@ -163,9 +168,9 @@ export const STORY_INTRO = {
  *   fotos 5, 5-1, 5-2 → 2019 Wendel Miguel
  *   fotos 6, 7      → 2021 Maria Cecília
  *   foto 10         → distância
- *   fotos 8, 9      → 2024 Vicente
- *   fotos 3, 4      → casamento civil
- *   foto 10-3       → família completa
+ *   vicent.jpeg     → 2024 Vicente
+ *   fotos 3, 4, 8, 9 → casamento civil / Maria Celina
+ *   fotos 10-2, 10-3 → família completa
  */
 export const STORY: StoryCard[] = [
   {
@@ -225,8 +230,7 @@ export const STORY: StoryCard[] = [
     subtext:
       "A chegada do nosso Vicente tornou nossa história ainda mais completa. E, enfim, conseguimos estar juntos por completo, sem distância nenhuma.",
     photos: [
-      { src: foto8, caption: "Pequenina e cheia de graça" },
-      { src: foto9, caption: "Sorrisos que enchem a casa", position: "center 30%" },
+      { src: fotoVicente, caption: "Nosso Vicente", position: "center 25%" },
     ],
     offsetX: -100,
     rotate: -3,
@@ -239,6 +243,8 @@ export const STORY: StoryCard[] = [
     photos: [
       { src: foto3, caption: "Alianças no dedo", position: "center 30%" },
       { src: foto4, caption: "O nosso sim no civil", position: "center 35%" },
+      { src: foto8, caption: "Pequenina e cheia de graça" },
+      { src: foto9, caption: "O sorriso mais lindo da casa", position: "center 30%" },
     ],
     offsetX: 140,
     rotate: 3,
@@ -249,6 +255,7 @@ export const STORY: StoryCard[] = [
     subtext:
       "Hoje, com nossos quatro filhos e uma história construída com amor, coragem, renúncias e muitas bênçãos, chegou o momento de realizar mais um grande sonho.",
     photos: [
+      { src: foto10b, caption: "Todos juntos, a família completa", position: "center 35%" },
       { src: foto10c, caption: "A nossa maior bênção", position: "center 60%" },
     ],
     offsetX: -80,

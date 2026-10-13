@@ -121,11 +121,11 @@ const VenueBlock = ({ venue }: { venue: Venue }) => (
 const InviteStage = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "center center"] });
-  const scale = useTransform(scrollYProgress, [0, 1], [0.75, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.5, 1]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.4, 1], [0.15, 0.85, 1]);
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center justify-center py-32">
+    <section ref={ref} className="relative flex justify-center py-10 md:py-14">
       <motion.div
         style={{ scale, opacity }}
         className="glass-card glow-gold p-8 md:p-14 max-w-lg w-full mx-4 text-center"

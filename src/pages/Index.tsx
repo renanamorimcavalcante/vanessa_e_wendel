@@ -36,7 +36,7 @@ const Index = () => (
           {COUPLE.bride} &amp; {COUPLE.groom}
         </p>
         <p className="text-muted-foreground text-[10px] tracking-[0.2em] uppercase mb-1">
-          Treix © {new Date().getFullYear()} — Todos os direitos reservados
+          RAC Soluções Digitais © {new Date().getFullYear()} — Todos os direitos reservados
         </p>
         <p className="text-muted-foreground/70 text-[9px] tracking-widest uppercase">
           ® — <span className="text-primary">Renan Cavalcante</span>

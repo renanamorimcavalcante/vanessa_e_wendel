@@ -15,7 +15,7 @@ const maskPhone = (v: string) => {
 const FormStage = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "center center"] });
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.5, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.4, 1], [0.15, 0.85, 1]);
   const scale = useTransform(scrollYProgress, [0, 1], [0.95, 1]);
 
   const [confirmation, setConfirmation] = useState<Confirmation>(null);
@@ -23,7 +23,6 @@ const FormStage = () => {
   const [guestNames, setGuestNames] = useState<string[]>([""]);
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [dietary, setDietary] = useState("");
   const [message, setMessage] = useState("");
   const [absentName, setAbsentName] = useState("");
   const [website, setWebsite] = useState(""); // honeypot anti-spam (fica oculto)
@@ -60,7 +59,6 @@ const FormStage = () => {
             nomesPessoas: guestNames.map((n) => n.trim()),
             telefone: phone,
             email,
-            restricaoAlimentar: dietary,
             mensagem: message,
             website,
           }
@@ -92,7 +90,7 @@ const FormStage = () => {
 
   if (submitted) {
     return (
-      <section id="form-confirmacao" className="relative min-h-screen flex items-center justify-center py-32">
+      <section id="form-confirmacao" className="relative flex justify-center py-10 md:py-14 scroll-mt-4">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -117,7 +115,7 @@ const FormStage = () => {
   }
 
   return (
-    <section id="form-confirmacao" ref={ref} className="relative min-h-screen flex items-center justify-center py-32">
+    <section id="form-confirmacao" ref={ref} className="relative flex justify-center py-10 md:py-14 scroll-mt-4">
       <motion.div style={{ scale, opacity }} className="glass-card glow-gold p-8 md:p-14 max-w-lg w-full mx-4">
         <div className="text-center mb-10">
           <p className="text-muted-foreground text-[10px] tracking-[0.5em] uppercase mb-3">R.S.V.P.</p>
@@ -223,17 +221,6 @@ const FormStage = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="seu@email.com"
-                className={inputClass}
-              />
-            </div>
-
-            <div>
-              <label className={labelClass}>Restrição alimentar {optional}</label>
-              <input
-                type="text"
-                value={dietary}
-                onChange={(e) => setDietary(e.target.value)}
-                placeholder="Ex: vegetariano, sem lactose, alergia a camarão..."
                 className={inputClass}
               />
             </div>

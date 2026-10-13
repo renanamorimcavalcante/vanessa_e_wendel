@@ -1,7 +1,20 @@
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Heart } from "lucide-react";
-import { STORY, STORY_INTRO, StoryCard, StoryPhoto } from "@/config/wedding";
+import { CHILDREN, STORY, STORY_INTRO, StoryCard, StoryPhoto } from "@/config/wedding";
+
+/** Destaca os nomes dos filhos (negrito + azul) dentro de um texto. */
+const NAME_RE = new RegExp(`(${CHILDREN.map((n) => n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`, "g");
+const withNames = (text: string) =>
+  text.split(NAME_RE).map((part, i) =>
+    CHILDREN.includes(part) ? (
+      <strong key={i} className="font-bold not-italic whitespace-nowrap text-[#5A8FC4]">
+        {part}
+      </strong>
+    ) : (
+      part
+    ),
+  );
 
 /**
  * Foto com fallback: enquanto o arquivo não existir em public/fotos,
@@ -99,7 +112,7 @@ const ImageCarousel = ({ photos }: { photos: StoryPhoto[] }) => {
         transition={{ duration: 0.4 }}
         className="text-center font-serif-display italic text-base text-muted-foreground"
       >
-        {current.caption}
+        {withNames(current.caption)}
       </motion.p>
     </div>
   );
@@ -109,7 +122,7 @@ const FloatingCard = ({ year, phrase, subtext, photos, offsetX, rotate, speed }:
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
 
-  const y = useTransform(scrollYProgress, [0, 1], [100 * speed, -100 * speed]);
+  const y = useTransform(scrollYProgress, [0, 1], [40 * speed, -40 * speed]);
   const x = useTransform(scrollYProgress, [0, 0.5, 1], [offsetX * 0.5, 0, -offsetX * 0.5]);
   const rotateZ = useTransform(scrollYProgress, [0, 1], [rotate, -rotate]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
@@ -135,7 +148,7 @@ const FloatingCard = ({ year, phrase, subtext, photos, offsetX, rotate, speed }:
         {phrase}
       </p>
       <p className={`text-foreground/70 text-sm leading-relaxed ${textOnly ? "font-serif-display italic text-base md:text-lg" : ""}`}>
-        {subtext}
+        {withNames(subtext)}
       </p>
       <div className={`mt-5 w-10 hairline ${textOnly ? "mx-auto" : ""}`} />
     </motion.div>
@@ -158,7 +171,7 @@ const StoryIntro = () => (
 );
 
 const StoryStage = () => (
-  <section className="relative py-32 space-y-40">
+  <section className="relative pt-24 pb-10 space-y-10 md:space-y-14">
     <StoryIntro />
     {STORY.map((card, i) => (
       <FloatingCard key={i} {...card} />
