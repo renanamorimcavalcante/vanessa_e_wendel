@@ -1,0 +1,5 @@
+# Bloqueia acesso direto aos arquivos internos
+<FilesMatch "^(config|config\.example|_bootstrap)\.php$">
+  Require all denied
+</FilesMatch>
+Options -Indexes

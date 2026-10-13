@@ -1,0 +1,12 @@
+FOTOS DO CASAL — salve aqui com exatamente estes nomes
+(definidos em src/config/wedding.ts → STORY; pode renomear lá se preferir)
+
+Card 1 "Onde tudo começou..."           inicio-1.jpg, inicio-2.jpg
+Card 2 "...e o tempo não espera"        namoro-1.jpg, namoro-2.jpg, namoro-3.jpg
+Card 3 "O amor é paciente..."           fe-1.jpg, fe-2.jpg
+Card 4 "E então, o pedido..."           pedido-1.jpg, pedido-2.jpg
+Card 5 "Um novo capítulo..."            ensaio-1.jpg, ensaio-2.jpg, ensaio-3.jpg
+Card 6 "E você faz parte dela"          casal-destaque.jpg  (pode ser .gif)
+
+Dica: JPG, ~1400px no lado maior, qualidade 80–85 (fica entre 150 e 400 KB).
+Preview do WhatsApp: salve uma foto 1200x630 como  public/og-image.jpg

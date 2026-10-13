@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────
+   PALETA — Casamento Vanessa & Wendel  ("Azul & Verde Oliva")
+   #ACD1F2 azul claro · #7AA7D0 azul · #8D9F77 oliva · #395135 verde escuro
+   Fundo branco-azulado, texto e botões em verde escuro, detalhes em azul.
+   ───────────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    --background: 210 60% 98%;       /* branco azulado #F6FAFD */
+    --foreground: 111 21% 22%;       /* verde escuro (texto) */
+
+    --card: 0 0% 100%;
+    --card-foreground: 111 21% 22%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 111 21% 22%;
+
+    --primary: 111 21% 26%;          /* verde oliva escuro #395135 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 208 72% 90%;        /* azul claríssimo (derivado de #ACD1F2) */
+    --secondary-foreground: 111 21% 22%;
+
+    --accent: 209 48% 65%;           /* azul #7AA7D0 */
+    --accent-foreground: 0 0% 100%;
+
+    --olive: 87 17% 55%;             /* verde oliva #8D9F77 */
+    --sky: 208 72% 81%;              /* azul claro #ACD1F2 */
+
+    --muted: 208 35% 93%;
+    --muted-foreground: 100 10% 36%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 208 40% 85%;
+    --input: 208 40% 85%;
+    --ring: 209 48% 65%;
+
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  body {
+    background: #F6FAFD;
+    @apply text-foreground;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  /* Fundo com halos azul/oliva numa camada fixa própria (composta pela GPU).
+     Substitui o antigo background-attachment: fixed, que repintava a tela
+     inteira a cada scroll — uma das causas dos travamentos. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -20;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 85% 0%, rgba(172, 209, 242, 0.55) 0%, transparent 45%),
+      radial-gradient(circle at 0% 100%, rgba(141, 159, 119, 0.28) 0%, transparent 50%);
+  }
+}
+
+@layer utilities {
+  /* Gradiente de texto: verde escuro → oliva → azul
+     (nome da classe mantido por compatibilidade) */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #395135 0%, #8D9F77 50%, #7AA7D0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Fontes */
+  .font-serif-display { font-family: 'Cormorant Garamond', serif; }
+  .font-script        { font-family: 'Great Vibes', cursive; font-weight: 400; }
+
+  /* Glass card: "vidro" branco-azulado.
+     Sem backdrop-filter de propósito (desempenho no scroll) — a leve
+     transparência + borda azul mantêm o efeito visual. */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(122, 167, 208, 0.3);
+    box-shadow: 0 10px 40px rgba(57, 81, 53, 0.08);
+  }
+
+  /* Brilho suave azul + oliva */
+  .glow-gold {
+    box-shadow: 0 0 30px rgba(122, 167, 208, 0.22),
+                0 0 70px rgba(141, 159, 119, 0.15);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 14px rgba(172, 209, 242, 0.7);
+  }
+
+  /* Linha ornamental fina */
+  .hairline {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(122, 167, 208, 0.7), transparent);
+  }
+}
+
+/* Celular: cards um pouco mais opacos para leitura */
+@media (max-width: 767px) {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.88);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
