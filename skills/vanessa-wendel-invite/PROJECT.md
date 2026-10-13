@@ -60,6 +60,19 @@ nem as fotos deles. Para religar: `dressCode: true` / `gifts: true`.
 
 ## CHANGELOG
 
+## 2026-10-12 (noite) — Ajustes finos
+- Monograma: V e W quase se tocando, "&" azul (#7AA7D0) por cima, centralizado (posições medidas com as fontes reais).
+- Igreja: **Igreja São Francisco de Assis**. Rodapé: **RAC Soluções Digitais**.
+- Cards da história mais próximos (space-y-10/14, parallax ±40); convite e formulário sem min-h-screen.
+- Removido campo "Restrição alimentar" do RSVP (coluna continua no banco, vazia).
+- Fotos: 2024 → `vicent.jpeg`; civil → 3, 4, 8, 9; família completa → 10-2, 10-3.
+- Nomes dos filhos (`CHILDREN` em wedding.ts) em negrito azul (#5A8FC4) nos textos e legendas.
+- Projeto no GitHub: renanamorimcavalcante/vanessa_e_wendel (privado) → Vercel (vanessaewendel.vercel.app).
+
+**Pendências:** horário da recepção (18h30 provisório), prazo do RSVP (10/11 provisório),
+`og-image.jpg` p/ preview no WhatsApp, domínio da Vercel em `allowed_origins` do config.php
+no servidor, apagar `status.php` do servidor, pastas vazias de fotos por filho em src/assets/img/.
+
 ## 2026-10-12 — Data oficial + API publicada
 - Casamento: **sexta-feira, 20/11/2026, 16h30** (Igreja). Prazo RSVP provisório: 10/11/2026.
 - API publicada na HostGator em `renancavalcante.dev.br/wendelevanessa/` (banco e usuário no cPanel → Bancos de dados MySQL). `status.php` confirmou conexão + tabela.
