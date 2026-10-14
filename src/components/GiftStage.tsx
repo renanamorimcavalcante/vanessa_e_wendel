@@ -38,7 +38,7 @@ const GiftStage = () => {
   };
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center justify-center py-32">
+    <section ref={ref} className="relative flex justify-center py-10 md:py-14">
       <motion.div style={{ scale, opacity }} className="w-full max-w-2xl mx-4">
         {/* Cabeçalho */}
         <motion.div
@@ -129,7 +129,7 @@ const GiftStage = () => {
           <div className="bg-white/60 border border-border rounded-xl px-5 py-4 mb-4 flex items-center justify-between gap-3">
             <div className="text-left min-w-0">
               <p className="text-[10px] text-muted-foreground uppercase tracking-widest mb-0.5">{PIX.keyType}</p>
-              <p className="text-foreground font-semibold text-sm tracking-wider truncate">{PIX.key}</p>
+              <p className="text-foreground font-semibold text-sm tracking-wider truncate">{PIX.display || PIX.key}</p>
               <p className="text-muted-foreground text-[10px] mt-0.5">{PIX.name}</p>
             </div>
             <button

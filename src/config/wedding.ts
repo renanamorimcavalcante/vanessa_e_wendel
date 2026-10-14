@@ -37,8 +37,8 @@ import fotoVicente from "@/assets/img/familia/vicent.jpeg";
  */
 export const SECTIONS = {
   story: true,
-  dressCode: false, // "Sobre o Traje" (LookStage)
-  gifts: false, // "Lista de Presentes" + "Presentear com Pix" (GiftStage)
+  dressCode: true, // "Sobre o Traje" (LookStage)
+  gifts: true, // "Lista de Presentes" + "Presentear com Pix" (GiftStage)
   invite: true,
   rsvp: true,
 };
@@ -99,11 +99,12 @@ export const CITY = "SÃO LUÍS | MA";
 
 // ── Pix / Presentes ─────────────────────────────────────────────────
 export const PIX = {
-  key: "00000000000", // TODO chave Pix do casal
-  keyType: "Chave Celular", // TODO "CPF", "E-mail", "Aleatória"...
-  name: "Vanessa ou Wendel", // TODO nome do titular
-  /** Código "Pix Copia e Cola" (opcional). Se vazio, o QR usa só a chave. */
-  copyPaste: "", // TODO
+  key: "86988667285", // celular (DDD 86) — é o que o botão "Copiar" copia
+  display: "(86) 98866-7285", // como a chave aparece na tela
+  keyType: "Chave Celular",
+  name: "Vanessa Karoline Cardoso Cavalcante",
+  /** Código "Pix Copia e Cola" (opcional). Se vazio, é gerado a partir da chave. */
+  copyPaste: "",
 };
 
 export interface Gift {
@@ -304,7 +305,7 @@ export const COPY = {
     "A nossa história começou, cresceu com cada desafio e floresceu com a chegada dos nossos filhos. Agora, diante de Deus e das pessoas que amamos, viveremos um novo capítulo: o nosso casamento religioso. Será uma alegria ter você conosco neste momento tão especial.",
   giftTitle: "Lista de Presentes",
   giftText:
-    "Sua presença é o nosso maior presente! Mas, se quiser nos presentear, deixamos algumas sugestões com carinho.",
+    "Ficamos muito felizes com a sua presença! Mas, se desejar presentear o casal, deixamos algumas sugestões com carinho.",
   dressTitle: "Sobre o Traje",
   dressCode: "Esporte Fino", // TODO
   dressText:

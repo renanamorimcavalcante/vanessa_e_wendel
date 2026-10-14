@@ -46,7 +46,7 @@ const LookStage = () => {
   const currentLook = LOOKS[gender][currentIndex];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center py-20 px-4">
+    <section className="relative flex justify-center py-10 md:py-14 px-4">
       <div className="w-full max-w-lg"> {/* Max-w menor para focar em uma foto só */}
         
         {/* Cabeçalho */}
