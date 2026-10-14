@@ -57,13 +57,13 @@ export const COUPLE = {
 
 // ── Data ────────────────────────────────────────────────────────────
 /** Formato ISO com fuso de São Luís (-03:00). Usado na contagem regressiva. */
-export const WEDDING_DATE_ISO = "2026-11-20T15:30:00-03:00";
+export const WEDDING_DATE_ISO = "2026-11-20T16:00:00-03:00";
 
 export const WEDDING_DATE = {
   day: "20",
   monthYear: "NOVEMBRO.26",
   weekday: "Sexta-feira",
-  time: "às 15h30",
+  time: "às 16h",
   /** Prazo para confirmar presença (exibido no formulário) */
   rsvpDeadline: "10 de novembro de 2026", // TODO confirmar prazo
 };
@@ -81,7 +81,7 @@ export const CEREMONY: Venue = {
   label: "Cerimônia",
   name: "Igreja São Francisco de Assis",
   address: "Rua Cinco, 1410 — Parque dos Sabiás · CEP 65064-330",
-  time: "15h30",
+  time: "16h",
   mapsUrl: "https://maps.app.goo.gl/LJj6CKvVSzXr9qwA6",
 };
 
@@ -89,7 +89,7 @@ export const RECEPTION: Venue | null = {
   label: "Recepção",
   name: "Romero Gastronomia",
   address: "Rua Mearim, lote 13 — Ponta do Farol · CEP 65075-835",
-  time: "18h30", // TODO horário
+  time: "19h",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=" +
     encodeURIComponent("Romero Gastronomia, Rua Mearim, Ponta do Farol, São Luís - MA"),
