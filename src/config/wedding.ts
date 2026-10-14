@@ -123,6 +123,9 @@ export const GIFTS: Gift[] = [
   { icon: QrCode, title: "Pix", description: "Para sua comodidade" },
 ];
 
+/** Mostrar os cards de sugestões (GIFTS)? false = só o Pix aparece. */
+export const SHOW_GIFT_SUGGESTIONS = false;
+
 /** Link para lista de presentes externa (loja). Deixe "" para esconder. */
 export const GIFT_LIST_URL = ""; // TODO
 
@@ -303,10 +306,12 @@ export const COPY = {
     "Com a família completa e o coração cheio de gratidão, convidamos você para celebrar conosco o nosso casamento na Igreja.",
   inviteClosing:
     "A nossa história começou, cresceu com cada desafio e floresceu com a chegada dos nossos filhos. Agora, diante de Deus e das pessoas que amamos, viveremos um novo capítulo: o nosso casamento religioso. Será uma alegria ter você conosco neste momento tão especial.",
-  giftTitle: "Lista de Presentes",
+  giftTitle: "Presentear o casal",
   giftText:
-    "Ficamos muito felizes com a sua presença! Mas, se desejar presentear o casal, deixamos algumas sugestões com carinho.",
+    "Ficamos muito felizes com a sua presença! Mas, se desejar presentear o casal, deixamos nosso Pix com carinho.",
   dressTitle: "Sobre o Traje",
+  /** Mostrar o carrossel de inspirações (fotos em src/assets/img/look)? */
+  dressShowLooks: false,
   dressCode: "Esporte Fino", // TODO
   dressText:
     "Separamos algumas inspirações para você celebrar conosco com conforto e elegância. Pedimos, com carinho, que o branco fique reservado à noiva.",

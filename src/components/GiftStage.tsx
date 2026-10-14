@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMemo, useRef, useState } from "react";
-import { COPY, COUPLE, GIFTS, GIFT_LIST_URL, PIX } from "@/config/wedding";
+import { COPY, COUPLE, GIFTS, GIFT_LIST_URL, PIX, SHOW_GIFT_SUGGESTIONS } from "@/config/wedding";
 import { buildPixPayload } from "@/lib/pix";
 
 const copyText = async (text: string) => {
@@ -39,8 +39,9 @@ const GiftStage = () => {
 
   return (
     <section ref={ref} className="relative flex justify-center py-10 md:py-14">
-      <motion.div style={{ scale, opacity }} className="w-full max-w-2xl mx-4">
-        {/* Cabeçalho */}
+      <motion.div style={{ scale, opacity }} className={`w-full mx-4 ${SHOW_GIFT_SUGGESTIONS ? "max-w-2xl" : "max-w-lg"}`}>
+        {/* Cabeçalho (só quando há sugestões; sem elas, título e texto vão no card do Pix) */}
+        {SHOW_GIFT_SUGGESTIONS && (
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -54,8 +55,10 @@ const GiftStage = () => {
           <p className="text-foreground/70 text-sm leading-relaxed">{COPY.giftText}</p>
           <div className="mt-6 w-10 hairline mx-auto" />
         </motion.div>
+        )}
 
         {/* Sugestões */}
+        {SHOW_GIFT_SUGGESTIONS && (
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
           {GIFTS.map((gift, i) => (
             <motion.div
@@ -75,6 +78,7 @@ const GiftStage = () => {
             </motion.div>
           ))}
         </div>
+        )}
 
         {GIFT_LIST_URL && (
           <div className="text-center mb-12">
@@ -97,8 +101,20 @@ const GiftStage = () => {
           transition={{ duration: 0.6 }}
           className="glass-card glow-gold !bg-white/75 p-8 md:p-10 text-center"
         >
-          <h3 className="font-serif-display text-gradient-gold text-3xl font-semibold mb-1">Presentear com Pix</h3>
-          <p className="text-muted-foreground text-xs mb-6">Transfira com segurança diretamente para o casal</p>
+          {SHOW_GIFT_SUGGESTIONS ? (
+            <>
+              <h3 className="font-serif-display text-gradient-gold text-3xl font-semibold mb-1">Presentear com Pix</h3>
+              <p className="text-muted-foreground text-xs mb-6">Transfira com segurança diretamente para o casal</p>
+            </>
+          ) : (
+            <>
+              <h2 className="font-serif-display text-gradient-gold text-4xl md:text-5xl font-semibold mb-4">
+                {COPY.giftTitle}
+              </h2>
+              <p className="text-foreground/70 text-sm leading-relaxed max-w-md mx-auto mb-6">{COPY.giftText}</p>
+              <div className="w-10 hairline mx-auto mb-6" />
+            </>
+          )}
 
           <button
             onClick={() => setShowPix(!showPix)}

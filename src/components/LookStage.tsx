@@ -67,6 +67,8 @@ const LookStage = () => {
           </p>
         </motion.div>
 
+        {COPY.dressShowLooks && (
+          <>
         {/* Seleção de Gênero */}
         <div className="flex justify-center gap-4 mb-10">
           <button
@@ -151,7 +153,8 @@ const LookStage = () => {
             ))}
           </div>
         </div>
-
+          </>
+        )}
       </div>
     </section>
   );
