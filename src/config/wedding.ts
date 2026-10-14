@@ -314,11 +314,8 @@ export const COPY = {
   dressShowLooks: false,
   dressCode: "Esporte Fino", // TODO
   dressText: "Pedimos, com carinho, que o branco fique reservado à noiva.",
-  /** Dicas rápidas do traje (aparecem abaixo do "Esporte Fino"). */
-  dressTips: [
-    { who: "Para elas", tip: "Vestido midi ou longo, macacão ou conjunto elegante." },
-    { who: "Para eles", tip: "Calça social e camisa; blazer opcional, sem gravata." },
-  ],
+  /** Dicas rápidas do traje. Ex.: { who: "Para elas", tip: "Vestido midi ou longo..." } */
+  dressTips: [] as { who: string; tip: string }[], // vazio = sem dicas "Para elas / Para eles"
   rsvpTitle: "Confirme sua presença",
   rsvpText: "Será uma alegria imensa ter você conosco nesse dia tão especial.",
   rsvpYes: "Sim! Estarei lá para celebrar com vocês!",

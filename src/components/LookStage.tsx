@@ -63,15 +63,17 @@ const LookStage = () => {
             {COPY.dressCode}
           </h2>
           <div className="mx-auto my-6 h-px w-20 bg-gradient-to-r from-transparent via-[#7AA7D0] to-transparent" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-sm max-w-md mx-auto">
-            {COPY.dressTips.map((t) => (
-              <div key={t.who}>
-                <p className="text-[10px] font-semibold tracking-[0.3em] uppercase text-[#5A8FC4] mb-1.5">{t.who}</p>
-                <p className="text-foreground/75 leading-relaxed">{t.tip}</p>
-              </div>
-            ))}
-          </div>
-          <p className="mt-7 text-foreground/60 text-sm italic">{COPY.dressText}</p>
+          {COPY.dressTips.length > 0 && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-sm max-w-md mx-auto mb-7">
+              {COPY.dressTips.map((t) => (
+                <div key={t.who}>
+                  <p className="text-[10px] font-semibold tracking-[0.3em] uppercase text-[#5A8FC4] mb-1.5">{t.who}</p>
+                  <p className="text-foreground/75 leading-relaxed">{t.tip}</p>
+                </div>
+              ))}
+            </div>
+          )}
+          <p className="text-foreground/60 text-sm italic">{COPY.dressText}</p>
         </motion.div>
 
         {COPY.dressShowLooks && (
