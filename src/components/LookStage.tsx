@@ -54,17 +54,24 @@ const LookStage = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-8"
+          className={`glass-card text-center px-6 py-10 md:px-10 ${COPY.dressShowLooks ? "mb-8" : ""}`}
         >
-          <h2 className="font-serif-display text-gradient-gold text-4xl md:text-5xl font-semibold mb-3">
+          <p className="text-[11px] tracking-[0.4em] uppercase text-foreground/60 mb-3">
             {COPY.dressTitle}
-          </h2>
-          <span className="inline-block mb-4 px-4 py-1 rounded-full border border-primary/40 text-primary text-[10px] font-semibold tracking-[0.35em] uppercase">
-            {COPY.dressCode}
-          </span>
-          <p className="text-foreground/70 text-sm max-w-md mx-auto leading-relaxed">
-            {COPY.dressText}
           </p>
+          <h2 className="font-serif-display text-gradient-gold text-5xl md:text-6xl font-semibold leading-tight">
+            {COPY.dressCode}
+          </h2>
+          <div className="mx-auto my-6 h-px w-20 bg-gradient-to-r from-transparent via-[#7AA7D0] to-transparent" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-sm max-w-md mx-auto">
+            {COPY.dressTips.map((t) => (
+              <div key={t.who}>
+                <p className="text-[10px] font-semibold tracking-[0.3em] uppercase text-[#5A8FC4] mb-1.5">{t.who}</p>
+                <p className="text-foreground/75 leading-relaxed">{t.tip}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-7 text-foreground/60 text-sm italic">{COPY.dressText}</p>
         </motion.div>
 
         {COPY.dressShowLooks && (

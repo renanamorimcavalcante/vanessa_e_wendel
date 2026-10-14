@@ -313,8 +313,12 @@ export const COPY = {
   /** Mostrar o carrossel de inspirações (fotos em src/assets/img/look)? */
   dressShowLooks: false,
   dressCode: "Esporte Fino", // TODO
-  dressText:
-    "Separamos algumas inspirações para você celebrar conosco com conforto e elegância. Pedimos, com carinho, que o branco fique reservado à noiva.",
+  dressText: "Pedimos, com carinho, que o branco fique reservado à noiva.",
+  /** Dicas rápidas do traje (aparecem abaixo do "Esporte Fino"). */
+  dressTips: [
+    { who: "Para elas", tip: "Vestido midi ou longo, macacão ou conjunto elegante." },
+    { who: "Para eles", tip: "Calça social e camisa; blazer opcional, sem gravata." },
+  ],
   rsvpTitle: "Confirme sua presença",
   rsvpText: "Será uma alegria imensa ter você conosco nesse dia tão especial.",
   rsvpYes: "Sim! Estarei lá para celebrar com vocês!",
